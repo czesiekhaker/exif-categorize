@@ -11,10 +11,13 @@ What works?
 
 Upcoming features:
 * move files into subdirectories
-* accept --dry-run option to display actions instead of moving files
-* accept exif tag names after --tag option
-* aliases for some tags (eg. 'model' for 'Exif.Image.Model',
-  'time' for 'Exif.Image.DateTime')
+* accept `--dry-run` option to display actions instead of moving files
+* accept exif tag names after `--tag` option
+* aliases for some tags (eg. `model` for `Exif.Image.Model`,
+  `time` for `Exif.Image.DateTime`)
+* accept `--stats` option to view the number of files per each tag value
+* accept `--min` option to move the files only if there is more of them
+  than `n` for a certain tag value
 
 Why bother?
 -----------
