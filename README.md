@@ -1,15 +1,20 @@
 Exif categorize
 ===============
 
-This is a simple script to move JPEG files into directories
-depending on Exif tag values.
+`excat.py` is a simple script to move JPEG files into directories
+depending on Exif tag values. Currently it's mostly hardcoded to do
+a very specific task (see *Why bother?* section).
 
-What works?
------------
+`rmsmall.py` is a script to separate small JPEGs (in terms of the picture
+size) into a separate directory. Currently the minimal dimensions and
+target directory are hardcoded (files with at least one of the
+dimensions smaller than 600px end up in `./small/` dir).
 
-**Work in progress. Nothing works.**
+Upcoming features
+-----------------
 
-Upcoming features:
+For `excat.py`:
+
 * move files into subdirectories
 * accept `--dry-run` option to display actions instead of moving files
 * accept exif tag names after `--tag` option
@@ -19,11 +24,16 @@ Upcoming features:
 * accept `--min` option to move the files only if there is more of them
   than `n` for a certain tag value
 
+For `rmsmall.py`:
+
+* setting minimal dimensions
+* setting target directory
+
 Why bother?
 -----------
 
 I was asked to recover some holiday photos from a broken harddisk.
-After ddrescue/photorec procedure I ended up with 20 thousand
+After `ddrescue`/`photorec` procedure I ended up with 20 thousand
 JPEGs, including system files, screenshots and [unrelated
 pictures](http://i2.kym-cdn.com/photos/images/original/000/002/151/1180723070762.jpg).
 
@@ -33,5 +43,12 @@ what sticks - review the contents of the files starting with
 a camera that made the biggest number of photos. After finding
 the winner I could also sort the files by dates...
 
-So there, I fired up python interpreter, found pyexiv2 module
+So there, I fired up the python interpreter, found pyexiv2 module
 and started tinkering.
+
+Notes
+-----
+
+I've found [fdupes]{https://code.google.com/p/fdupes/} useful for
+removing duplicates before processing the images with `rmsmall.py`
+and `excat.py`.
